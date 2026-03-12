@@ -1,6 +1,6 @@
-﻿// Copyright (c) Argo Zhang (argo@live.ca). All rights reserved.
+﻿// Copyright (c) Argo Zhang (argo@163.com). All rights reserved.
 // Licensed under the LGPL License, Version 3.0. See License.txt in the project root for license information.
-// Website: https://pro.blazor.zone
+// Website: https://admin.blazor.zone
 
 using BootstrapAdmin.Caching;
 using BootstrapAdmin.DataAccess.Models;
@@ -359,6 +359,12 @@ class DictService : IDict
     {
         var dicts = GetAll();
         return dicts.Where(s => s.Category == "应用程序" && s.Code != "BA").ToDictionary(s => s.Name, s => s.Code);
+    }
+
+    public string GetClientUrl(string name)
+    {
+        var dicts = GetAll();
+        return dicts.Where(s => s.Category == "应用首页" && s.Name == name).FirstOrDefault()?.Code ?? "";
     }
 
     public bool ExistsAppId(string appId)

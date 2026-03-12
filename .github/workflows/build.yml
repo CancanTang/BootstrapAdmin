@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v1
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 10.0.x
+        dotnet-version: 5.0.103
     - name: Build with dotnet
-      run: dotnet build src/blazor/admin/BootstrapAdmin.Web/ --configuration Release
+      run: dotnet build src/admin/Bootstrap.Admin/ --configuration Release

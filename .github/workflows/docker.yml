@@ -3,13 +3,13 @@ name: Docker Image CI
 on:
   push:
     branches:
-      - master-bak
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
  
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file src/blazor/admin/BootstrapAdmin.Web/Dockerfile --tag ba:$(date +%s)
+      run: docker build . --file src/admin/Bootstrap.Admin/Dockerfile --tag ba:$(date +%s)
